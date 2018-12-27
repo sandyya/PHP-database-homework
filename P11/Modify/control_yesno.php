@@ -26,10 +26,10 @@ if ( isset($_POST['modify']) ) {// 取得SQL指令
 		if(isset($_SESSION["name"]) ) {
 			$link = mysqli_connect("localhost", "root", "", "customer")or die("無法開啟MySQL資料庫連接!<br/>");// 開啟MySQL的資料庫連接
 			$cust_no = $_SESSION["cust_no"];
-			$name = $_SESSION["name"];
-			$id = $_SESSION["id"];
-			$tel_no = $_SESSION["tel_no"];
-			$address = $_SESSION["address"];
+			$name = $_POST["name"];
+			$id = $_POST["id"];
+			$tel_no = $_POST["tel_no"];
+			$address = $_POST["address"];
 			if(strlen($name)>0 && strlen($id)>0 && strlen($tel_no)>0 && strlen($address)>0){
 				$sql = "UPDATE basic ";
 				$sql.= "SET id = '$id', tel_no='$tel_no', address = '$address' , name = '$name'";
